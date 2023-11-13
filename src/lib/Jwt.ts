@@ -8,8 +8,8 @@ export interface IAccessTokenPayload {
 export class JWT {
     static createAccessToken(payload: IAccessTokenPayload): string {
         try {
-            return sign(payload, process.env.JWT_ACCESS_SECRET as string, {
-                expiresIn: process.env.JWT_ACCESS_EXPIRATION,
+            return sign(payload, process.env.JWT_SECRET as string, {
+                expiresIn: process.env.JWT_EXPIRES_IN,
             });
         } catch (error: any) {
             throw new HttpException(500, Errors.INTERNAL_ERROR, `JWT error: ${error.message || 'something went wrong in creating access-token'}!`);

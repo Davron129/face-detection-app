@@ -12,6 +12,7 @@ import path from 'path';
 import hpp from 'hpp';
 import KnexService from './config/db';
 import { config } from 'dotenv';
+import session from 'express-session';
 
 class App {
     public app: express.Application;
@@ -26,6 +27,9 @@ class App {
     ) {
         config();
         this.app = express();
+        this.app.set('view engine', 'ejs');
+        this.app.set('views', path.join(__dirname, 'views'));
+
         this.env = process.env.NODE_ENV || 'development';
         this.port = process.env.PORT || 3000;
 
@@ -63,6 +67,12 @@ class App {
         this.app.use(morgan(process.env.LOG_FORMAT as string, { stream }));
         this.app.use(cors(CORS_OPTIONS));
         this.app.use(cookieParser());
+        this.app.use(session({
+            secret: "Something went wrong!",
+            cookie: { secure: true },
+            saveUninitialized: false,
+            resave: false
+        }))
         this.app.use(hpp());
         this.app.use(helmet());
         this.app.use(express.json());

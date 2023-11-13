@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles/globals.css">
+    <link rel="stylesheet" href="styles/fonts.css">
+    <link rel="stylesheet" href="styles/login.css">
+</head>
+<body>
+    <div class="login__container">
+        <div class="login__wrapper">
+            <!-- <div class="login__tabs">
+                <div class="login__tab active">Log In</div>
+                <div class="login__tab">Registration</div>
+            </div> -->
+            <div class="login__form__wrapper">
+                <div class="login__logo">
+                    <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_503_1182)">
+                        <path d="M35.9671 42.5454L20.8799 57.6654L25.2326 61.9201L31.418 55.7018L32.7271 52.3964V72H39.2726V52.4291L40.4508 55.6036L46.7671 61.9201L51.0544 57.6327L35.9671 42.5454Z" fill="#FFA763"/>
+                        <path d="M52.3969 32.7271H72.0005V39.2726H52.4296L55.6041 40.4508L61.9206 46.7671L57.6332 51.0544L42.5459 35.9671L57.6659 20.8799L61.9206 25.2326L55.7023 31.418L52.3969 32.7271Z" fill="#FFA763"/>
+                        <path d="M10.0801 25.2326L14.3346 20.8799L29.4546 35.9671L14.3672 51.0544L10.0801 46.7671L16.3964 40.4508L19.5709 39.2726H0V32.7271H19.6037L16.2982 31.418L10.0801 25.2326Z" fill="#FFA763"/>
+                        <path d="M40.4508 16.3964L46.7671 10.0801L51.0544 14.3672L35.9671 29.4546L20.8799 14.3346L25.2326 10.0801L31.418 16.2982L32.7271 19.6037V0H39.2726V19.5709L40.4508 16.3964Z" fill="#FFA763"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_503_1182">
+                        <rect width="72" height="72" fill="white"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+                </div>
+                <h2 class="title">Log in</h2>
+                <p class="subtitle">Log into your account</p>
+                <form action="/login" method="post" class="login__form">
+                    <div class="form__item">
+                        <input type="text" placeholder="Login" name="username">
+                    </div>
+                    <div class="form__item">
+                        <input type="password" placeholder="Password" name="password">
+                    </div>
+                    <% if (typeof message != "undefined" && message) { %>
+                        <p class="error"><%= message %> </p>
+                    <% } %>
+                    <button class="btn btn-filled">Log in</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

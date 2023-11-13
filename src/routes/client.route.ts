@@ -13,10 +13,13 @@ class ClientRoute {
         this.router.get('/', authorizationMiddleware, (req: Request, res: Response) => {
             res.sendFile(path.join(process.cwd(), 'src/views/index.html'));
         });
-        this.router.get('/login', (req: Request, res: Response) => res.sendFile(path.join(process.cwd(), 'src/views/login.html')));
+        this.router.get('/login', (req: Request, res: Response) => {
+            res.render("login")
+        });
         this.router.get('/branches', authorizationMiddleware, (req: Request, res: Response) =>
             res.sendFile(path.join(process.cwd(), 'src/views/branches.html')),
         );
+        this.router.get("/home", (req: Request, res: Response) => res.render('home'))
     }
 }
 

@@ -1,0 +1,43 @@
+.btn {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px;
+}
+
+.btn.with-icon {
+    gap: 8px;
+}
+
+.btn-md {
+    height: 44px;
+}
+
+.btn-lg {
+    height: 62px;
+}
+
+.btn-rounded {
+    border-radius: 22px;
+}
+
+.btn-filled {
+    border: 1px solid var(--orange);
+    background-color: var(--orange);
+    color: var(--secondary);
+}
+
+.btn-filled svg {
+    fill: var(--secondary);
+}
+
+.btn-filled:hover {
+    background-color: transparent;
+    color: var(--orange);
+}
+
+.btn-filled:hover svg {
+    fill: var(--orange);
+}

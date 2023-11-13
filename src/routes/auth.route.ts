@@ -13,6 +13,9 @@ class AuthRoute {
 
     private initializeRoutes() {
         this.router.post('/api/login', validationMiddleware(LoginDto, 'body'), this.controller.login);
+
+        this.router.post('/login', this.controller.login);
+
     }
 }
 

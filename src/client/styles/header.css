@@ -1,0 +1,113 @@
+.header__container {
+    padding: 24px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-logo__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rotate {
+    transition: 0.3s linear;
+}
+
+.header-logo__wrapper:hover .rotate {
+    transition: 0.3s linear;
+    transform-origin: center;
+    transform-box: stroke-box;
+}
+.header-logo__wrapper:hover .rotate:nth-of-type(1) {
+    transform: translateY(-140%);
+}
+.header-logo__wrapper:hover .rotate:nth-of-type(2) {
+    transform: translateX(-140%);
+}
+.header-logo__wrapper:hover .rotate:nth-of-type(3) {
+    transform: translateX(140%);
+}
+.header-logo__wrapper:hover .rotate:nth-of-type(4) {
+    transform: translateY(140%);
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 10px;
+}
+
+.header__right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 64px;
+}
+
+.header__nav {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+}
+
+.header__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--white, #FFF);
+    font-family: var(--font-pp-mori);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1; /* 120% */
+    letter-spacing: -0.3px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.header__item svg {
+    fill: var(--white);
+    transition: .3s ease-in-out;
+}
+
+.header__item:hover {
+    color: var(--orange);
+}
+
+.header__item:hover svg {
+    fill: var(--orange);
+    transform: rotate(-45deg);
+}
+
+.header__btn {
+    font-size: 20px;
+    font-style: normal;
+    line-height: 24px; /* 120% */
+    letter-spacing: -0.3px;
+}
+
+@media (max-width: 991px) {
+    .header__right {
+        gap: 32px;
+    }
+
+    .header__nav {
+        gap: 32px;
+    }
+
+    .login__btn {
+        height: 32px;
+        padding: 0 20px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        display: none;
+    }
+}

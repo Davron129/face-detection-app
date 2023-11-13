@@ -22,28 +22,28 @@ const logger = winston.createLogger({
         }),
         logFormat,
     ),
-    transports: [
-        new winstonDaily({
-            level: 'debug',
-            datePattern: 'YYYY-MM-DD',
-            dirname: logDir + '/debug',
-            filename: '%DATE%.log',
-            maxFiles: 30,
-            json: false,
-            zippedArchive: true,
-        }),
+    // transports: [
+    //     new winstonDaily({
+    //         level: 'debug',
+    //         datePattern: 'YYYY-MM-DD',
+    //         dirname: logDir + '/debug',
+    //         filename: '%DATE%.log',
+    //         maxFiles: 30,
+    //         json: false,
+    //         zippedArchive: true,
+    //     }),
 
-        new winstonDaily({
-            level: 'error',
-            datePattern: 'YYYY-MM-DD',
-            dirname: logDir + '/error',
-            filename: '%DATE%.log',
-            maxFiles: 30,
-            handleExceptions: true,
-            json: false,
-            zippedArchive: true,
-        }),
-    ],
+    //     new winstonDaily({
+    //         level: 'error',
+    //         datePattern: 'YYYY-MM-DD',
+    //         dirname: logDir + '/error',
+    //         filename: '%DATE%.log',
+    //         maxFiles: 30,
+    //         handleExceptions: true,
+    //         json: false,
+    //         zippedArchive: true,
+    //     }),
+    // ],
 });
 
 logger.add(
