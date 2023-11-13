@@ -1,17 +1,17 @@
-import { CORS_OPTIONS, DB_CONFIG } from '@config';
+import { CORS_OPTIONS } from '@config';
 import errorMiddleware from '@middlewares/error.middleware';
 import { logger, stream } from '@/shared/logger';
 import swaggerUi from 'swagger-ui-express';
 import express, { Router } from 'express';
 import cookieParser from 'cookie-parser';
-import { loadSeed } from '@shared/seed';
-import { DataSource } from 'typeorm';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import yaml from 'yamljs';
 import cors from 'cors';
 import path from 'path';
 import hpp from 'hpp';
+import KnexService from './config/db';
+import { config } from 'dotenv';
 
 class App {
     public app: express.Application;
@@ -24,6 +24,7 @@ class App {
             router: Router;
         }[],
     ) {
+        config();
         this.app = express();
         this.env = process.env.NODE_ENV || 'development';
         this.port = process.env.PORT || 3000;
@@ -50,10 +51,12 @@ class App {
     }
 
     private async initializeDatabase() {
-        const AppDataSource = new DataSource(DB_CONFIG);
-
-        await AppDataSource.initialize();
-        await loadSeed();
+        const knexInstance = new KnexService().instance;
+        try {
+            await knexInstance.select(knexInstance.raw("now()"))
+        } catch (error) {
+            console.log("DB connection error!", error)
+        }
     }
 
     private initializeMiddlewares() {

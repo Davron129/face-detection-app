@@ -5,6 +5,11 @@ import AuthRoute from '@routes/auth.route';
 
 import App from '@/app';
 
-const app = new App([new ClientRoute(), new AuthRoute(), new UsersRoute(), new BranchRoute()]);
+const app = new App([
+    new ClientRoute(), 
+    new AuthRoute(), 
+    new UsersRoute(), 
+    new BranchRoute()
+]);
 
 app.listen();

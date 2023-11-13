@@ -8,6 +8,7 @@ class AuthController {
     login = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
         try {
             const body: LoginDto = req.body;
+
             const accessToken = await this.authService.login(body);
 
             res.cookie('accessToken', accessToken, {

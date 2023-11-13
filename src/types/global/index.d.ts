@@ -1,9 +1,9 @@
-import { UserEntity } from '@entities/users.entity';
+export {}
 
 declare global {
     namespace Express {
         export interface Request {
-            reqUser?: UserEntity;
+            reqUser?: string;
         }
     }
     type KeyValueObjectType = { [key: string]: any };

@@ -4,7 +4,7 @@ import { validate, ValidationError } from 'class-validator';
 import { plainToInstance } from 'class-transformer';
 
 const validationMiddleware = (
-    type: ClassType,
+    type: any,
     value: 'body' | 'query' | 'params' | 'headers' = 'body',
     skipMissingProperties = false,
     whitelist = true,
