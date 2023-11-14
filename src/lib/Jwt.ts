@@ -18,7 +18,7 @@ export class JWT {
 
     static verifyAccessToken(token: string) {
         try {
-            return verify(token, process.env.JWT_ACCESS_SECRET as string) as IAccessTokenPayload;
+            return verify(token, process.env.JWT_SECRET as string) as IAccessTokenPayload;
         } catch (error: any) {
             if (error.message?.toLowerCase().includes('expired')) {
                 throw new HttpException(401, Errors.TOKEN_EXPIRED, `JWT error: ${error.message}!`);

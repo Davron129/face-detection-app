@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course content</title>
+    <link rel="stylesheet" href="/styles/globals.css">
+    <link rel="stylesheet" href="/styles/fonts.css">
+    <link rel="stylesheet" href="/styles/header.css">
+    <link rel="stylesheet" href="/styles/course-content.css">
+</head>
+<body>
+    <%- include('layout/header.ejs', { user: user }) %>
+    <div class="container">
+       <div class="breadcrumb">
+            <a class="breadcrumb__item" href="/courses">
+                Course
+            </a>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 3H8.48044L15.0334 9.71727L8.50119 16.3333H5.00119L11.5334 9.71727L5 3Z"/>
+            </svg>
+            <span class="breadcrumb__item">
+                <%= course.title %>
+            </span>
+       </div>
+
+       <div class="wrapper">
+            <div class="course__meta">
+                <h1 class="title">
+                    <%= course.title %>
+                </h1>
+                <p class="description">
+                    <%= course.description %>
+                </p>
+
+                <div class="course__content">
+                    <% if (Array.isArray(sections) && sections.length > 0) { %>
+                        <% sections.forEach(section => { %>
+                            <% if (course.is_permitted) { %>
+                                <a class="section" href="/courses/<%= course.id %>/<%= section.id %>">
+                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M21 3H3c-1.11 0-2 .89-2 2v12a2 2 0 002 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5a2 2 0 00-2-2zm0 14H3V5h18v12zm-5-6l-7 4V7z"></path></svg>
+                                    <span><%= section.title  %></span>
+                                </a>
+                            <% } else { %>
+                                <div class="section">
+                                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" width="1em" height="1em" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M21 3H3c-1.11 0-2 .89-2 2v12a2 2 0 002 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5a2 2 0 00-2-2zm0 14H3V5h18v12zm-5-6l-7 4V7z"></path></svg>
+                                    <span><%= section.title  %></span>
+                                </div>
+                            <% } %>
+
+                        <% }) %>
+                    <% } else { %>
+                        <span class="no__content">No Content</span>
+                    <% } %>
+                </div>
+            </div>
+
+            <div class="course__actions">
+                <div class="action__description">
+                    You don't have access to this course.
+                </div>
+                <a href="#" class="action__btn">Contact admin</a>
+            </div>
+       </div>
+    </div>
+</body>
+</html>

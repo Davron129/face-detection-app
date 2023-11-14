@@ -69,9 +69,7 @@ class App {
         this.app.use(cookieParser());
         this.app.use(session({
             secret: "Something went wrong!",
-            cookie: { secure: true },
-            saveUninitialized: false,
-            resave: false
+            saveUninitialized: true,
         }))
         this.app.use(hpp());
         this.app.use(helmet());

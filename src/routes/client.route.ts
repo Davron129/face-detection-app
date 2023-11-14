@@ -1,6 +1,6 @@
-import authorizationMiddleware from '@middlewares/authorization.middleware';
+import CourseController from '@/controllers/course.controller';
+import { publicAuthMiddleware } from '@/middlewares/public-auth.middleware';
 import { Router, Request, Response } from 'express';
-import path from 'path';
 
 class ClientRoute {
     public router = Router();
@@ -10,16 +10,20 @@ class ClientRoute {
     }
 
     private initializeRoutes() {
-        this.router.get('/', authorizationMiddleware, (req: Request, res: Response) => {
-            res.sendFile(path.join(process.cwd(), 'src/views/index.html'));
-        });
         this.router.get('/login', (req: Request, res: Response) => {
+            console.log("req.session.user", req.session)
             res.render("login")
         });
-        this.router.get('/branches', authorizationMiddleware, (req: Request, res: Response) =>
-            res.sendFile(path.join(process.cwd(), 'src/views/branches.html')),
-        );
-        this.router.get("/home", (req: Request, res: Response) => res.render('home'))
+
+        this.router.get("/", publicAuthMiddleware, (req: Request, res: Response) => {
+            const user = req.session.user ?? null;
+            
+            res.render('home', { user })
+        })
+
+        this.router.get("/courses", publicAuthMiddleware, new CourseController().getAll)
+
+        this.router.get("/courses/:courseId", publicAuthMiddleware, new CourseController().getOne)
     }
 }
 

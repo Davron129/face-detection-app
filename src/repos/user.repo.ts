@@ -29,5 +29,16 @@ export class UserRepo {
 
         return query
     }
+
+    getById = async ({ id }: { id: string }) => {
+        const query = this.knex
+            .select("*")
+            .from(this.table)
+            .where("id", id)
+            .andWhere(this.knex.raw("is_deleted is not true"))
+            .first();
+
+        return query;
+    }
 }
 

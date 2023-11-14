@@ -55,7 +55,13 @@
                 <span class="nav__label">Contacts</span>
             </a>
             <a href="/login" class="header__btn btn with-icon btn-md btn-filled btn-rounded font-500">
-                <span>Login</span>
+                <span>
+                    <% if (!!user) { %>
+                     <%= user.first_name[0] + user.last_name[0] %>
+                    <% } else { %>
+                        Login
+                    <% } %>
+                </span>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7.46701 3.3335L12.7469 8.80078H4.16699V11.3008H12.7469L7.46691 16.6668H10.9682L17.5004 10.0508L10.9474 3.3335H7.46701Z"/>
                 </svg>

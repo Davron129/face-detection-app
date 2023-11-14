@@ -1,3 +1,5 @@
+import session from "express-session";
+
 export {}
 
 declare global {
@@ -5,11 +7,14 @@ declare global {
         export interface Request {
             reqUser?: string;
         }
-        export interface SessionData {
-            user?: any
-        }
     }
 
     type KeyValueObjectType = { [key: string]: any };
     type ClassType = new () => any;
+}
+
+declare module 'express-session' {
+    interface SessionData {
+        user?: any
+    }
 }

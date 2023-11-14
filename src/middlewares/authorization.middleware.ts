@@ -11,13 +11,9 @@ const authorizationMiddleware = async (req: Request, res: Response, next: NextFu
 
         const payload = JWT.verifyAccessToken(accessToken);
 
-        // const [user] = await UserEntity.findBy({ id: payload.userId });
-
         if (!true) {
             return res.clearCookie('accessToken').redirect('/login');
         }
-
-        // req.reqUser = "user";
 
         next();
     } catch (error) {

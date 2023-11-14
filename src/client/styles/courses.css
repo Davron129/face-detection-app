@@ -1,0 +1,67 @@
+.course__type__name {
+    margin-bottom: 20px;
+    color: var(--white, #FFF);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 110%; /* 26.4px */
+}
+
+.course__list {
+    margin-bottom: 36px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.course__card {
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(218, 225, 228, 0.20);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.course__card:hover {
+    background-color: var(--white);
+    transition: .3s ease-in-out;
+}
+
+.course__card:hover .course__description {
+    color: var(--primary);
+    transition: .3s ease-in-out;
+}
+
+.course__title {
+    margin-bottom: 12px;
+    color: var(--orange, #FFA763);
+    font-family: var(--font-lemon-milk);
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 100%; /* 48px */
+}
+
+.course__description {
+    margin-bottom: 12px;
+    color: var(--white, #FFF);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 110%; /* 26.4px */
+}
+
+.course__status {
+    height: 22px;
+    padding: 0 10px;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 11px;
+    font-weight: 500;
+}
+
+.course__status.purchased {
+    color: var(--primary);
+    background-color: #CEFFA8;
+}
+
+.course__status.not__purchased {
+    color: var(--white);
+    background-color: #FF4141;
+}
