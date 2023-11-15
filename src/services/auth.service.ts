@@ -3,6 +3,8 @@ import { LoginDto } from '@dtos/auth.dto';
 import { JWT } from '@lib/Jwt';
 
 export class AuthService {
+    
+
     async login(body: LoginDto): Promise<string> {
         // const [user] = await UserEntity.findBy({ email: body.email });
 

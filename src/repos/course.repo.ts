@@ -1,4 +1,4 @@
-import KnexService from "@/config/db";
+import knexInstance from "@/config/db";
 import { Knex } from "knex";
 
 export class CourseRepo {
@@ -6,7 +6,7 @@ export class CourseRepo {
     table: string;
 
     constructor() {
-        this.knex = new KnexService().instance;
+        this.knex = knexInstance;
         this.table = 'acca.courses'
     }
 

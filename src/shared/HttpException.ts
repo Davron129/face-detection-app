@@ -15,6 +15,9 @@ export enum Errors {
     BAD_REQUEST_ERROR = 'BAD_REQUEST_ERROR',
     UNAUTHORIZED = 'UNAUTHORIZED',
     BAD_INPUT_ERROR = 'BAD_INPUT_ERROR',
+    COURSE_NOT_FOUND = 'COURSE_NOT_FOUND',
+    SECTION_NOT_FOUND = 'SECTION_NOT_FOUND',
+    NOT_FOUND = 'NOT_FOUND',
 }
 
 export class HttpException extends Error {

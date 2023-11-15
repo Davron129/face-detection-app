@@ -1,0 +1,11 @@
+version: '3'
+services:
+  web:
+    image: acca-mvc  # Replace with the name you gave to your Docker image
+    ports:
+      - "3000:3000"
+    volumes:
+      - files:/usr/src/app/uploads/
+volumes:
+  files:
+    external: true

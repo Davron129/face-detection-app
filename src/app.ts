@@ -10,9 +10,9 @@ import yaml from 'yamljs';
 import cors from 'cors';
 import path from 'path';
 import hpp from 'hpp';
-import KnexService from './config/db';
 import { config } from 'dotenv';
 import session from 'express-session';
+import knexInstance from './config/db';
 
 class App {
     public app: express.Application;
@@ -55,7 +55,6 @@ class App {
     }
 
     private async initializeDatabase() {
-        const knexInstance = new KnexService().instance;
         try {
             await knexInstance.select(knexInstance.raw("now()"))
         } catch (error) {

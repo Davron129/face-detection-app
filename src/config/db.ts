@@ -1,9 +1,10 @@
 import knex from "knex";
 
-class KnexService {
+export class KnexService {
 	instance;
 
 	constructor() {
+		console.log("Connection")
 		this.instance = knex({
 			client: 'pg',
 			debug: false,
@@ -24,4 +25,6 @@ class KnexService {
 	}
 }
 
-export default KnexService;
+const knexInstance = new KnexService().instance;
+
+export default knexInstance;

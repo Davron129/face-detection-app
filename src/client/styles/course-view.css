@@ -30,3 +30,60 @@
     color: var(--white);
     line-height: 18px; /* 112.5% */
 }
+
+.course__section {
+    border-radius: 12px;
+    background-color: #001527;
+}
+
+.section__meta {
+    padding: 20px;
+}
+
+.section__title {
+    margin-bottom: 12px;
+    color: var(--white);
+    font-size: 22px;
+}
+
+.section__description {
+    margin-bottom: 32px;
+    color: #92929C;
+    white-space: pre-line
+}
+
+.section__files {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.file__meta {
+    padding: 20px;
+    border-radius: 12px;
+    background: var(--primary, #083345);
+}
+
+.file__title {
+    margin-bottom: 20px;
+    color: #FFF;
+    font-size: 14px;
+    line-height: 120%; /* 16.8px */
+}
+
+.file__action--download {
+    height: 48px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-radius: 10px;
+    background: #1C4759;
+    color: var(--white);
+    font-weight: 500;
+}
+
+.file__action--download:hover {
+    opacity: 0.9;
+}

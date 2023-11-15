@@ -1,4 +1,4 @@
-import KnexService from "@/config/db";
+import knexInstance from "@/config/db";
 import { LoginDto } from "@/dtos/auth.dto";
 import { Knex } from "knex";
 
@@ -7,7 +7,7 @@ export class UserRepo {
     table: string;
 
     constructor() {
-        this.knex = new KnexService().instance;
+        this.knex = knexInstance
         this.table = "acca.users";
     }
 
