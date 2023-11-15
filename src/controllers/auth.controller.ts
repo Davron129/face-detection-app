@@ -17,7 +17,7 @@ class AuthController {
                 });
 
                 if(!user) {
-                    res.render("login", {
+                    return res.render("login", {
                         message: "Invalid credentials."
                     })
                 }
@@ -29,9 +29,9 @@ class AuthController {
                         message: "Internal server error"
                     });
 
-                    const accessToken = JWT.createAccessToken({ userId: user.id });
+                    const accessToken = JWT.createAccessToken({ userId: user?.id });
                     res.cookie("accessToken", accessToken, { maxAge: 24 * 60 * 60 * 1000 });
-                    res.redirect('/home');
+                    res.redirect('/');
                 });
 
 

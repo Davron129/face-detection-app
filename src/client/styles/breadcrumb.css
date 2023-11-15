@@ -1,0 +1,21 @@
+.breadcrumb {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.breadcrumb svg {
+    fill: var(--white, #FFF);
+}
+
+.breadcrumb__item {
+    color: var(--white, #FFF);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 110%; /* 19.8px */
+}
+
+a.breadcrumb__item:hover {
+    color: var(--orange);
+}

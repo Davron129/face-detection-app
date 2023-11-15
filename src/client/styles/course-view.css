@@ -1,0 +1,32 @@
+.wrapper {
+    max-width: 1700px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto 400px;
+    gap: 24px;
+}
+
+.course__sections {
+    padding: 20px 0;
+    border-radius: 12px;
+    background: #001527;
+}
+
+.section {
+    min-height: 60px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #292A32;
+}
+
+.section:hover,
+.section.current {
+    background-color: rgba(8, 51, 69, 0.40);
+}
+
+.section__title {
+    color: var(--white);
+    line-height: 18px; /* 112.5% */
+}

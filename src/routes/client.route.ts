@@ -24,6 +24,8 @@ class ClientRoute {
         this.router.get("/courses", publicAuthMiddleware, new CourseController().getAll)
 
         this.router.get("/courses/:courseId", publicAuthMiddleware, new CourseController().getOne)
+
+        this.router.get("/courses/:courseId/:sectionId", publicAuthMiddleware, new CourseController().view)
     }
 }
 

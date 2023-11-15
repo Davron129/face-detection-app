@@ -25,4 +25,20 @@ export class SectionRepo {
         return query;
     }
 
+    getById = async (sectionId: string) => {
+        const query = this.knex
+            .select([
+                's.id',
+                's.title',
+                's.description',
+                's.file_id'
+            ])
+            .from(`${this.table} as s`)
+            .where('s.id', sectionId)
+            .whereNotNull('s.is_deleted')
+            .first()
+
+        return query;
+    }
+
 }
